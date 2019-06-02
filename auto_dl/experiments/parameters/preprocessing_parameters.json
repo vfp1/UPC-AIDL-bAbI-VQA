@@ -1,0 +1,5 @@
+{
+  "single_supporting_fact_10k": "tasks_1-20_v1-2/en-10k/qa1_single-supporting-fact_{}.txt",
+  "two_supporting_facts_10k": "tasks_1-20_v1-2/en-10k/qa2_two-supporting-facts_{}.txt",
+  "chosen_challenge": "single_supporting_fact_10k"
+}

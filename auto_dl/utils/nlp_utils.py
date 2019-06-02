@@ -1,22 +1,16 @@
 from __future__ import print_function
 from functools import reduce
 import re
-import tarfile
 
 import numpy as np
 
-from keras.utils.data_utils import get_file
-from keras.layers.embeddings import Embedding
-from keras import layers
-from keras.layers import recurrent
-from keras.models import Model
 from keras.preprocessing.sequence import pad_sequences
 
 
 def tokenize(sent):
     '''Return the tokens of a sentence including punctuation.
 
-    >>> tokenize('Bob dropped the apple. Where is the apple?')
+    #>>> tokenize('Bob dropped the apple. Where is the apple?')
     ['Bob', 'dropped', 'the', 'apple', '.', 'Where', 'is', 'the', 'apple', '?']
     '''
     return [x.strip() for x in re.split(r'(\W+)?', sent) if x.strip()]
