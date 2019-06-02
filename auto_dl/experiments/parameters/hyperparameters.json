@@ -1,0 +1,12 @@
+{
+    "Loss": "mean_absolute_error",
+    "Epoch": 10,
+    "Batch_size": 1000,
+    "CNN_filters": [8, 4],
+    "FC_filters": [4, 2],
+    "Dropout_Bool": true,
+    "Dropout_Number": 0.1,
+    "optimizer": "Adam",
+    "metrics" : ["mae", "accuracy"],
+    "logs_dir": "experiments/tb_logs"
+}
