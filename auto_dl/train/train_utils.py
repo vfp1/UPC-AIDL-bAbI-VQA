@@ -8,7 +8,6 @@ sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 from keras.models import Sequential, Model
 from keras.utils import plot_model
 from keras.callbacks import TensorBoard
-from tensorboardcolab import TensorBoardColab, TensorBoardColabCallback
 
 import os
 
@@ -17,7 +16,7 @@ from utils.parameter_loading import ParameterLoading, GitFolder
 class ModelCompiler(object):
 
     def babl_RNN_compile(self, timestamp, input_sequence, question, answer,
-                         save_model_image=True, tensorboard=False, tensorboardcolab=True):
+                         save_model_image=True, tensorboard=False):
 
         """
         This compiles the model from the arquitecture.
@@ -73,10 +72,6 @@ class ModelCompiler(object):
 
             tboard = TensorBoard(log_dir=path_file, write_graph=True, write_grads=True, batch_size=bsize, write_images=True)
 
-        if tensorboardcolab:
-
-            tboard = TensorBoardColab()
-
         print(model.summary())
 
         return model, tboard
@@ -105,6 +100,6 @@ class Train(object):
                   batch_size=bsize,
                   epochs=epoch,
                   validation_data=([inputs_test, queries_test], answers_test),
-                  callbacks=[TensorBoardColabCallback(tboard)])
+                  callbacks=tboard)
 
         return model
