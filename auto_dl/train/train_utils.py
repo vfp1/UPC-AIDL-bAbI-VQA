@@ -100,6 +100,6 @@ class Train(object):
                   batch_size=bsize,
                   epochs=epoch,
                   validation_data=([inputs_test, queries_test], answers_test),
-                  callbacks=tboard)
+                  callbacks=[tboard])
 
         return model
