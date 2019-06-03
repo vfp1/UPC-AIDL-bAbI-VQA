@@ -29,7 +29,8 @@ print("Computing the model")
 model, tboard = ModelCompiler().babl_RNN_compile(timestamp=time_string, input_sequence=input_sequence,
                                                  question=question, answer=answer,
                                                  save_model_image=True,
-                                                 tensorboard=True)
+                                                 tensorboard=False,
+                                                 tensorboardcolab=True)
 
 # Train the model
 print("Training the model")
