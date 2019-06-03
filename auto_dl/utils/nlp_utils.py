@@ -1,7 +1,9 @@
-from __future__ import print_function
+import sys
+import os
 
-import sys, os
-sys.path.insert(0, os.path.dirname(sys.path[0]))
+PACKAGE_PARENT = '..'
+SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
+sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 from functools import reduce
 import re
