@@ -109,3 +109,5 @@ class DataPreprocessing(object):
         print('answers_test shape:', answers_test.shape)
         print('-')
         print('Compiling...')
+
+        return vocab_size, story_maxlen, query_maxlen, inputs_train, queries_train, answers_train, inputs_test, queries_test, answers_test

@@ -46,3 +46,34 @@ class ParameterLoading(object):
         except json.decoder.JSONDecodeError:
 
             raise Exception("Parameter file contains a typo. Probably you forgot a comma somewhere. Exiting execution")
+
+    def get_architecture_params(self, architecture_param_file='architecture_parameters.json'):
+        """
+        Get the challenge type to build up the train test examples
+        :param preprocessing_param_file: the preprocessing parameter location, set as default
+        :return: the QA1 and QA2
+        """
+
+        git_root = GitFolder().get_git_root()
+
+        path_file = os.path.join(git_root, "auto_dl/experiments/parameters/{}".format(architecture_param_file))
+
+        try:
+
+            try:
+
+                with open(path_file, "r") as read_file:
+                    params = json.load(read_file)
+
+                    babl_RNN_dropout = params["babl_RNN"]["Dropout"]
+                    babl_RNN_activation = params["babl_RNN"]["Activation"]
+
+                return babl_RNN_dropout, babl_RNN_activation
+
+            except FileNotFoundError:
+
+                raise Exception("The path to the preprocessing parameter file is not correct")
+
+        except json.decoder.JSONDecodeError:
+
+            raise Exception("Parameter file contains a typo. Probably you forgot a comma somewhere. Exiting execution")

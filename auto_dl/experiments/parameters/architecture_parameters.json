@@ -1,0 +1,7 @@
+{
+    "babl_RNN": [
+      {
+        "Dropout": 0.3,
+        "Activation": "softmax"
+      }]
+}
