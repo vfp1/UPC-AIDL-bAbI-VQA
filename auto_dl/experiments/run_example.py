@@ -28,7 +28,7 @@ input_sequence, question, answer = Arquitectures().babl_RNN(story_maxlen=story_m
 print("Computing the model")
 model, tboard = ModelCompiler().babl_RNN_compile(timestamp=time_string, input_sequence=input_sequence,
                                                  question=question, answer=answer,
-                                                 save_model_image=False,
+                                                 save_model_image=True,
                                                  tensorboard=True)
 
 # Train the model
