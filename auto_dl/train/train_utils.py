@@ -53,7 +53,7 @@ class ModelCompiler(object):
 
             name_string = timestamp + loss_string + optimizer_string + metrics_string
 
-            path_file = os.path.join(git_root, "auto_dl/experiments/network_images/{}.png".format("model"))
+            path_file = os.path.join(git_root, "auto_dl/experiments/network_images/{}.png".format(name_string))
 
             plot_model(model, to_file=path_file)
 
