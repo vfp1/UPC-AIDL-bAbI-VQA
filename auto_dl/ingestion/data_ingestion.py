@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.path[0]))
+
 from utils.nlp_utils import get_stories, vectorize_stories
 from utils.parameter_loading import ParameterLoading
 from keras.utils.data_utils import get_file

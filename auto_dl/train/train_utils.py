@@ -1,3 +1,6 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.path[0]))
+
 from keras.models import Sequential, Model
 from keras.utils import plot_model
 from keras.callbacks import TensorBoard

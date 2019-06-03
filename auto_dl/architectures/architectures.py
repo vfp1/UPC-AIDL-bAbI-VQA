@@ -1,3 +1,7 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.path[0]))
+
+
 from keras.models import Sequential, Model
 from keras.layers.embeddings import Embedding
 from keras.layers import Input, Activation, Dense, Permute, Dropout

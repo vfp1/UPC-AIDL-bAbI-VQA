@@ -1,4 +1,8 @@
 from __future__ import print_function
+
+import sys, os
+sys.path.insert(0, os.path.dirname(sys.path[0]))
+
 from functools import reduce
 import re
 
