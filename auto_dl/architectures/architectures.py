@@ -16,7 +16,7 @@ class Arquitectures(object):
         """
         # Get the parameters
         p = ParameterLoading()
-        babl_RNN_dropout, babl_RNN_activation = p.get_preprocessing_params()
+        babl_RNN_dropout, babl_RNN_activation = p.get_architecture_params()
 
         # placeholders
         input_sequence = Input((story_maxlen,))

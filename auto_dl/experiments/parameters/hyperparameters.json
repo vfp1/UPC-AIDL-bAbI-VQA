@@ -1,8 +1,9 @@
 {
-    "Loss": "mean_absolute_error",
-    "Epoch": 10,
-    "Batch_size": 1000,
-    "optimizer": "Adam",
-    "metrics" : ["mae", "accuracy"],
-    "logs_dir": "experiments/tb_logs"
+    "Loss": "sparse_categorical_crossentropy",
+    "Epoch": 120,
+    "Batch_size": 32,
+    "Optimizer": "rmsprop",
+    "Metrics" : "accuracy",
+    "Logs_dir": "experiments/tb_logs",
+    "Plot_images_dir": "experiments/network_images"
 }

@@ -209,6 +209,14 @@ model = Model([input_sequence, question], answer)
 model.compile(optimizer='rmsprop', loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
+print(model.summary())
+print(len(inputs_train))
+print(len(queries_train))
+print(len(answers_train))
+print(len(inputs_test))
+print(len(queries_test))
+print(len(answers_test))
+
 # train
 model.fit([inputs_train, queries_train], answers_train,
           batch_size=32,
