@@ -2,6 +2,8 @@
     "babl_RNN": [
       {
         "Dropout": 0.3,
-        "Activation": "softmax"
+        "Activation": "softmax",
+        "Fully_Connected_filters": 4,
+        "Fully_Connected_batch_normalization": true
       }]
 }

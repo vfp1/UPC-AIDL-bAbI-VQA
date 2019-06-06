@@ -7,6 +7,7 @@ sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 
 from keras.models import Sequential, Model
+from keras.layers.normalization import BatchNormalization
 from keras.layers.embeddings import Embedding
 from keras.layers import Input, Activation, Dense, Permute, Dropout
 from keras.layers import add, dot, concatenate
@@ -24,7 +25,7 @@ class Arquitectures(object):
         """
         # Get the parameters
         p = ParameterLoading()
-        babl_RNN_dropout, babl_RNN_activation = p.get_architecture_params()
+        babl_RNN_dropout, babl_RNN_activation, fc_number, fc_batch_norm = p.get_architecture_params()
 
         # placeholders
         input_sequence = Input((story_maxlen,))
@@ -71,10 +72,32 @@ class Arquitectures(object):
         # we choose to use a RNN instead.
         answer = LSTM(32)(answer)  # (samples, 32)
 
-        # one regularization layer -- more would probably be needed.
-        answer = Dropout(babl_RNN_dropout)(answer)
-        answer = Dense(vocab_size)(answer)  # (samples, vocab_size)
-        # we output a probability distribution over the vocabulary
+        # Choose the numbe of fully connected layers
+        for i in range(fc_number):
+
+            # Using batch normalization
+            if fc_batch_norm is True:
+
+                answer = Dense(vocab_size)(answer)  # (samples, vocab_size)
+                # we output a probability distribution over the vocabulary
+
+                # one regularization layer -- more would probably be needed.
+                answer = Dropout(babl_RNN_dropout)(answer)
+
+                # batch normalization
+                answer = BatchNormalization(axis=-1)(answer)
+
+            # Withouth batch normalization
+
+            else:
+
+                answer = Dense(vocab_size)(answer)  # (samples, vocab_size)
+                # we output a probability distribution over the vocabulary
+
+                # one regularization layer -- more would probably be needed.
+                answer = Dropout(babl_RNN_dropout)(answer)
+
+
         answer = Activation(babl_RNN_activation)(answer)
 
         return input_sequence, question, answer

@@ -74,8 +74,10 @@ class ParameterLoading(object):
 
                     babl_RNN_dropout = params["babl_RNN"][0]["Dropout"]
                     babl_RNN_activation = params["babl_RNN"][0]["Activation"]
+                    fc_number = params["babl_RNN"][0]["Fully_Connected_number"]
+                    fc_batch_norm = params["babl_RNN"][0]["Fully_Connected_batch_normalization"]
 
-                return babl_RNN_dropout, babl_RNN_activation
+                return babl_RNN_dropout, babl_RNN_activation, fc_number, fc_batch_norm
 
             except FileNotFoundError:
 
